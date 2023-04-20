@@ -15,8 +15,11 @@ async fn upgrade_canister_cb() {
     let install_args = InstallCodeArgument { mode: CanisterInstallMode::Upgrade, canister_id: id, wasm_module: wasm, arg: Encode!().unwrap(), };
     let result: CallResult<()> = ic_cdk::api::call::call(Principal::management_canister(), "install_code", (install_args,),).await;
     result.unwrap();
+
+    ic_cdk::println!("Child: Upgrade done");
 }
 
+// dfx canister call aaaaa-aa update_settings '(record { canister_id = principal "'$(dfx canister id child)'"; settings = record { controllers = opt vec { principal "'$(dfx canister id child)'"; principal "'$(dfx identity get-principal)'"; }; }; })'
 // dfx canister call child upgrade_canister
 #[ic_cdk_macros::update]
 async fn upgrade_canister() {
