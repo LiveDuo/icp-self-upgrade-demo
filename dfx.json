@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "dfx": "0.13.1",
+  "canisters": {
+    "child_self_v1": {
+      "type": "rust",
+      "package": "child",
+      "candid": "src/backend/child.did"
+    }
+  }
+}
