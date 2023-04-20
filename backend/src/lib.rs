@@ -1,13 +1,10 @@
-use candid::{Principal, CandidType, Deserialize, Encode};
+use candid::{Principal, Encode};
 
 use ic_cdk::api::call::CallResult;
 
-use std::cell::RefCell;
 use std::time::Duration;
 
 use ic_cdk::api::management_canister::main::*;
-
-// static 
 
 async fn upgrade_canister_cb() {
     ic_cdk::println!("Child: Self upgrading...");
